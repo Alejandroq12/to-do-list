@@ -2,7 +2,7 @@
 
 
 <div align="center">
-  <img src="./assets/img/logo/todo.png" alt="logo" width="600"  height="auto" />
+  <img src="./assets/logo/todo.png" alt="logo" width="600"  height="auto" />
   <br/>
 
   <h3><b>To do list</b></h3>
@@ -145,8 +145,11 @@ To use this project locally on your computer, follow these steps:
 2. Navigate to the project directory where the index.html file is located.
 3. Open the index.html file with a web browser.
 - Optional: You can also use the Live Server extension for Visual Studio Code to view the website with live reloading.
+
 -- Install the Live Server extension in Visual Studio Code.
+
 -- Open the project folder in Visual Studio Code.
+
 -- Right-click on the index.html file and select "Open with Live Server".
 
 The website should now be displayed in your browser, and you can interact with the application as intended.
