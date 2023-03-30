@@ -18,19 +18,20 @@ class TaskElement {
     );
     listItem.appendChild(taskText);
 
+    const eraseIcon = this.createEraseIcon();
+    eraseIcon.style.display = 'none'; // hide erase icon by default
+    listItem.appendChild(eraseIcon);
+
     const threeDotsIcon = document.createElement('span');
     threeDotsIcon.className = 'three-dots-icon';
     listItem.appendChild(threeDotsIcon);
 
-    const deleteIcon = this.createDeleteIcon();
-    deleteIcon.style.display = 'none'; // hide delete icon by default
-    listItem.appendChild(deleteIcon);
-
     threeDotsIcon.addEventListener('click', () => {
-      deleteIcon.style.display = 'inline-block'; // show delete icon
+      threeDotsIcon.style.display = 'none'; // hide three dots icon
+      eraseIcon.style.display = 'inline-block'; // show erase icon
     });
 
-    deleteIcon.addEventListener('click', () => {
+    eraseIcon.addEventListener('click', () => {
       this.deleteTask();
     });
 
@@ -38,11 +39,11 @@ class TaskElement {
   }
 
   // eslint-disable-next-line class-methods-use-this
-  createDeleteIcon() {
-    const deleteIcon = document.createElement('span');
-    deleteIcon.className = 'delete-icon';
-    deleteIcon.innerHTML = '&times;';
-    return deleteIcon;
+  createEraseIcon() {
+    const eraseIcon = document.createElement('span');
+    eraseIcon.className = 'erase-icon';
+    eraseIcon.innerHTML = '&times;';
+    return eraseIcon;
   }
 
   deleteTask() {
