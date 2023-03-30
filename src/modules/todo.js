@@ -1,4 +1,3 @@
-// import './style.css';
 import TaskElement from './taskElement.js';
 import ToDoStructure from './ToDoStructure.js';
 

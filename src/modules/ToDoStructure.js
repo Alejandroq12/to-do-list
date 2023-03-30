@@ -9,16 +9,15 @@ class ToDoStructure {
     const main = document.createElement('main');
     main.id = 'todo-list__div';
 
-    main.appendChild(this.createTodoDateDiv());
-    main.appendChild(this.createTodoDivPlaceholder());
+    main.appendChild(ToDoStructure.createTodoDateDiv());
+    main.appendChild(ToDoStructure.createTodoDivPlaceholder());
     main.appendChild(this.createTodoListDiv());
-    main.appendChild(this.createBtnDiv());
+    main.appendChild(ToDoStructure.createBtnDiv());
 
     return main;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  createTodoDateDiv() {
+  static createTodoDateDiv() {
     const todoDateDiv = document.createElement('div');
     todoDateDiv.className = 'todo-date';
 
@@ -34,8 +33,7 @@ class ToDoStructure {
     return todoDateDiv;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  createTodoDivPlaceholder() {
+  static createTodoDivPlaceholder() {
     const todoDivPlaceholder = document.createElement('div');
     todoDivPlaceholder.className = 'todo-div__placeholder';
 
@@ -69,8 +67,7 @@ class ToDoStructure {
     return todoListDiv;
   }
 
-  // eslint-disable-next-line class-methods-use-this
-  createBtnDiv() {
+  static createBtnDiv() {
     const btnDiv = document.createElement('div');
     btnDiv.className = 'btn';
 
