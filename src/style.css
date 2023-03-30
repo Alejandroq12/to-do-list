@@ -154,11 +154,9 @@ input[type='checkbox'] {
   line-height: 1.5;
 }
 
-.delete-icon {
+.erase-icon {
   position: absolute;
-  right: 0.5em;
-  top: 50%;
-  transform: translateY(-50%);
+  transform: translateX(5110%);
   font-size: 1.2em;
   cursor: pointer;
 }
