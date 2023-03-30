@@ -1,3 +1,5 @@
+import './style.css';
+
 export function createTaskElement(task) {
   const listItem = document.createElement('li');
 
