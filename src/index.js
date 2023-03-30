@@ -1,4 +1,4 @@
-// eslint-disable-next-line no-unused-vars
+import './style.css';
 import { createToDoStructure } from './todo.js';
 
 const tasks = [
