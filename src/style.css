@@ -128,3 +128,28 @@ input[type='checkbox'] {
   border: none;
   background-color: lightgray;
 }
+
+/* Add this at the end of your existing style.css file */
+
+#main-content {
+  flex: 1;
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 1rem;
+  background-color: #f4f4f4;
+  box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#footer div {
+  text-align: center;
+}
+
+#footer p {
+  font-size: 1.4rem;
+  line-height: 1.5;
+}
