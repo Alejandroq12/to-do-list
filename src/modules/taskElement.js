@@ -22,7 +22,32 @@ class TaskElement {
     threeDotsIcon.className = 'three-dots-icon';
     listItem.appendChild(threeDotsIcon);
 
+    const deleteIcon = this.createDeleteIcon();
+    deleteIcon.style.display = 'none'; // hide delete icon by default
+    listItem.appendChild(deleteIcon);
+
+    threeDotsIcon.addEventListener('click', () => {
+      deleteIcon.style.display = 'inline-block'; // show delete icon
+    });
+
+    deleteIcon.addEventListener('click', () => {
+      this.deleteTask();
+    });
+
     return listItem;
+  }
+
+  // eslint-disable-next-line class-methods-use-this
+  createDeleteIcon() {
+    const deleteIcon = document.createElement('span');
+    deleteIcon.className = 'delete-icon';
+    deleteIcon.innerHTML = '&times;';
+    return deleteIcon;
+  }
+
+  deleteTask() {
+    const listItem = document.querySelector(`li[data-index='${this.task.index}']`);
+    listItem.remove();
   }
 }
 

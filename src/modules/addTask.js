@@ -1,4 +1,5 @@
 import { createTaskElement } from './todo.js';
+import TaskElement from './taskElement.js';
 
 const addTask = (tasks, description) => {
   const newTask = {
@@ -8,7 +9,9 @@ const addTask = (tasks, description) => {
   };
   tasks.push(newTask);
   const taskList = document.querySelector('.todos-ul');
-  const newTaskElement = createTaskElement(newTask);
+  const taskElement = new TaskElement(newTask);
+  const newTaskElement = createTaskElement(newTask, taskElement);
   taskList.appendChild(newTaskElement);
 };
+
 export default addTask;

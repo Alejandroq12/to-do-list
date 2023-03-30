@@ -20,6 +20,15 @@ function populateTasks() {
       }
     }
   });
+  const todoList = document.querySelector('.todos-ul');
+  todoList.addEventListener('click', (event) => {
+    if (event.target.classList.contains('delete-icon')) {
+      const listItem = event.target.parentElement;
+      const index = parseInt(listItem.dataset.index, 10);
+      tasks.splice(index, 1);
+      listItem.remove();
+    }
+  });
 }
 
 window.addEventListener('DOMContentLoaded', populateTasks);

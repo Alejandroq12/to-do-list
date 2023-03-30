@@ -153,3 +153,12 @@ input[type='checkbox'] {
   font-size: 1.4rem;
   line-height: 1.5;
 }
+
+.delete-icon {
+  position: absolute;
+  right: 0.5em;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2em;
+  cursor: pointer;
+}
