@@ -29,6 +29,7 @@ class TaskElement {
     threeDotsIcon.addEventListener('click', () => {
       threeDotsIcon.style.display = 'none'; // hide three dots icon
       eraseIcon.style.display = 'inline-block'; // show erase icon
+      listItem.style.backgroundColor = 'yellow'; // set background color to yellow
     });
 
     eraseIcon.addEventListener('click', () => {

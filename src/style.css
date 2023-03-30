@@ -78,7 +78,7 @@ body {
 .todos-ul li {
   display: flex;
   align-items: center;
-  margin-bottom: 5px;
+  margin-bottom: 0;
   font-size: 2rem;
   border-bottom: 1px solid lightgray;
   padding: 23px 30px;
@@ -94,6 +94,7 @@ input[type='checkbox'] {
   height: 16px;
   background-image: url('../assets/icons/elipsis.svg');
   background-size: cover;
+  cursor: move;
 }
 
 .todo-date,
@@ -158,5 +159,5 @@ input[type='checkbox'] {
   position: absolute;
   transform: translateX(5110%);
   font-size: 1.2em;
-  cursor: pointer;
+  cursor: move;
 }
