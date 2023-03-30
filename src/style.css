@@ -1,3 +1,132 @@
+*,
+*::before,
+*::after {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+html,
 body {
-  background-color: lightblue;
+  display: flex;
+  flex-direction: column;
+  font-size: 62.5%;
+  height: 100%;
+}
+
+#todo-list__div {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 40%;
+  background-color: #f4f4f4;
+  padding: 0;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
+  transform: translate(-50%, -50%);
+}
+
+.todo-date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todo-date__p {
+  margin: 0;
+  font-size: 3.5rem;
+  padding: 10px;
+}
+
+.loading-icon {
+  width: 16px;
+  height: 16px;
+  background-image: url('../assets/icons/rows.svg');
+  background-size: cover;
+  margin-right: 22px;
+}
+
+.todo-div__placeholder {
+  position: relative;
+}
+
+#new-task {
+  width: 90%;
+  padding: 10px;
+  margin: 10px 10px;
+  border: none;
+  font-size: 2rem;
+}
+
+.arrow {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 16px;
+  height: 16px;
+  background-image: url('../assets/icons/rows2.svg');
+  background-size: cover;
+  margin-right: 22px;
+}
+
+.todos-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todos-ul li {
+  display: flex;
+  align-items: center;
+  margin-bottom: 5px;
+  font-size: 2rem;
+  padding: 15px;
+  border-bottom: 1px solid lightgray;
+  padding: 23px 30px;
+
+}
+
+input[type='checkbox'] {
+  margin-right: 18px;
+}
+
+.three-dots-icon {
+  margin-left: auto;
+  width: 16px;
+  height: 16px;
+  background-image: url('../assets/icons/elipsis.svg');
+  background-size: cover;
+}
+
+.todo-date,
+.todo-div__placeholder,
+.todo-list,
+.btn {
+  background-color: white;
+  border-bottom: 1px solid lightgray;
+  padding: 10px;
+}
+
+.todo-list {
+  list-style: none;
+  padding: 0;
+}
+
+.btn {
+  background-color: lightgrey;
+  border-bottom: none;
+  margin-top: -6px;
+}
+
+.btn-p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  font-size: 1.6rem;
+  cursor: pointer;
+  border: none;
+  background-color: lightgray;
 }
