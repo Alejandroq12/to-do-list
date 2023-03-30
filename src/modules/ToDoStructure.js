@@ -69,6 +69,7 @@ class ToDoStructure {
     return todoListDiv;
   }
 
+  // eslint-disable-next-line class-methods-use-this
   createBtnDiv() {
     const btnDiv = document.createElement('div');
     btnDiv.className = 'btn';
