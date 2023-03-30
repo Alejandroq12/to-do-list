@@ -1,11 +1,11 @@
-<a name="readme-top">My Books</a>
+<a name="readme-top">To do list</a>
 
 
 <div align="center">
-  <img src="./assets/img/logo/logo-readme.png" alt="logo" width="600"  height="auto" />
+  <img src="./assets/logo/todo.png" alt="logo" width="600"  height="auto" />
   <br/>
 
-  <h3><b>My Books</b></h3>
+  <h3><b>To do list</b></h3>
 
 </div>
 
@@ -37,7 +37,7 @@
 
 # 📖 My Books <a name="about-project"></a>
 
-"My Books" is an intuitive web application that showcases a dynamic list of books, offering the ability to add and remove books seamlessly. Throughout the development process, I have honed my skills in managing data with JavaScript, resulting in a highly interactive user experience. By adhering to a medium-fidelity wireframe, the application's user interface has been meticulously crafted to meet modern design standards. This project not only showcases my adeptness in web development but also demonstrates my ability to create user-friendly applications."
+🚀 This repository contains the front-end implementation of a to-do list web application. The app is designed to help users efficiently manage their tasks and stay organized, using modern web development practices and technologies.
 
 ## 🛠 Built With <a name="built-with"></a>
 
@@ -49,6 +49,7 @@
     <li><a href="https://developer.mozilla.org/es/docs/Learn/HTML">HTML</a></li>
     <li><a href="https://developer.mozilla.org/es/docs/Web/CSS">CSS</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
+    <li><a href="https://webpack.js.org/">Webpack</a></li>
   </ul>
 </details>
 
@@ -57,9 +58,8 @@
 
 ### Key Features <a name="key-features"></a>
 
-- **A fully functional website**
+- **Use of ES6 syntax**
 - **Modular JavaScript: The application is built using JavaScript modules, resulting in a well-organized, maintainable, and scalable codebase.**
-- **Semantic HTML: By utilizing semantic HTML elements, the website's structure is meaningful and accessible, improving both search engine optimization and the user experience for individuals using assistive technologies.**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -97,7 +97,7 @@ Clone this repository to your desired folder:
 
 1. Clone it using your terminal:
 ```
-git clone https://github.com/Alejandroq12/my-books-ES6.git
+git clone https://github.com/Alejandroq12/to-do-list.git
 ```
 
 2. If the previous method does not work you may also download the repo as a .zip file and once you decompress the .zip file you are ready to use it.
@@ -145,8 +145,11 @@ To use this project locally on your computer, follow these steps:
 2. Navigate to the project directory where the index.html file is located.
 3. Open the index.html file with a web browser.
 - Optional: You can also use the Live Server extension for Visual Studio Code to view the website with live reloading.
+
 -- Install the Live Server extension in Visual Studio Code.
+
 -- Open the project folder in Visual Studio Code.
+
 -- Right-click on the index.html file and select "Open with Live Server".
 
 The website should now be displayed in your browser, and you can interact with the application as intended.
@@ -210,6 +213,9 @@ You can deploy this project using GitHub pages:
 
 - [ ] **I will add media queries for larger screens**
 - [ ] **I will use JavaScript to add more interactivity**
+- [ ] **Mark tasks as completed**
+- [ ] **Automatically reorder tasks based on priority**
+- [ ] **Fully responsive design for mobile and desktop devices**
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 

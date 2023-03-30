@@ -1,13 +1,16 @@
-import _ from 'lodash';
 import './style.css';
+import { createToDoStructure } from './todo.js';
 
-function component() {
-  const element = document.createElement('div');
+const tasks = [
+  { description: 'Buy groceries', completed: false, index: 1 },
+  { description: 'Do laundry', completed: true, index: 0 },
+  { description: 'Finish project', completed: false, index: 2 },
+];
 
-  // Lodash, now imported by this script
-  element.innerHTML = _.join(['Hello', 'webpack'], ' ');
-
-  return element;
+function populateTasks() {
+  const placeholder = document.getElementById('todo-list-placeholder');
+  const toDoStructure = createToDoStructure(tasks);
+  placeholder.appendChild(toDoStructure);
 }
 
-document.body.appendChild(component());
+window.addEventListener('DOMContentLoaded', populateTasks);
