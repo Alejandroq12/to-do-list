@@ -1,5 +1,6 @@
 import './style.css';
-import { createToDoStructure } from './todo.js';
+
+import { createToDoStructure } from './modules/todo.js';
 
 const tasks = [
   { description: 'Buy groceries', completed: false, index: 1 },
