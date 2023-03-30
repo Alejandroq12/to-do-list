@@ -1,7 +1,23 @@
 export function createTaskElement(task) {
   const listItem = document.createElement('li');
-  listItem.textContent = `${task.description} (${task.completed ? 'completed' : 'incomplete'})`;
+
+  const checkbox = document.createElement('input');
+  checkbox.type = 'checkbox';
+  checkbox.checked = task.completed;
+  listItem.appendChild(checkbox);
+
+  const taskText = document.createTextNode(
+    `${task.description} (${task.completed ? 'completed' : 'incomplete'})`,
+  );
+  listItem.appendChild(taskText);
+
+  // Add the three-dots icon
+  const threeDotsIcon = document.createElement('span');
+  threeDotsIcon.className = 'three-dots-icon';
+  listItem.appendChild(threeDotsIcon);
+
   listItem.dataset.index = task.index;
+  listItem.classList.add('task-item');
   return listItem;
 }
 
@@ -16,6 +32,11 @@ export function createToDoStructure(tasks) {
   todoDateP.textContent = "Today's To Do";
   todoDateDiv.appendChild(todoDateP);
 
+  // Add the loading-icon to the right of Today's Task
+  const loadingIcon = document.createElement('span');
+  loadingIcon.className = 'loading-icon';
+  todoDateDiv.appendChild(loadingIcon);
+
   const todoDivPlaceholder = document.createElement('div');
   todoDivPlaceholder.className = 'todo-div__placeholder';
   const newTaskInput = document.createElement('input');
@@ -23,6 +44,11 @@ export function createToDoStructure(tasks) {
   newTaskInput.type = 'text';
   newTaskInput.placeholder = 'Add to your list...';
   todoDivPlaceholder.appendChild(newTaskInput);
+
+  // Add the arrow icon to the right of the placeholder
+  const arrowIcon = document.createElement('span');
+  arrowIcon.className = 'arrow';
+  todoDivPlaceholder.appendChild(arrowIcon);
 
   const todoListDiv = document.createElement('div');
   todoListDiv.className = 'todo-list';
@@ -35,7 +61,7 @@ export function createToDoStructure(tasks) {
 
   const btnDiv = document.createElement('div');
   btnDiv.className = 'btn';
-  const btnP = document.createElement('p');
+  const btnP = document.createElement('button');
   btnP.className = 'btn-p';
   btnP.textContent = 'Clear all completed';
   btnDiv.appendChild(btnP);
