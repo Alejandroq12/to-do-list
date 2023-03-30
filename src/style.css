@@ -80,10 +80,8 @@ body {
   align-items: center;
   margin-bottom: 5px;
   font-size: 2rem;
-  padding: 15px;
   border-bottom: 1px solid lightgray;
   padding: 23px 30px;
-
 }
 
 input[type='checkbox'] {
