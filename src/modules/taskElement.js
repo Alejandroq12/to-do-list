@@ -1,6 +1,10 @@
 class TaskElement {
   constructor(task) {
     this.task = task;
+    this.listItem = this.create();
+    this.eraseIcon = this.listItem.querySelector('.erase-icon');
+    this.taskText = this.listItem.querySelector('.task-text');
+    this.threeDotsIcon = this.listItem.querySelector('.three-dots-icon');
   }
 
   create() {
@@ -13,23 +17,32 @@ class TaskElement {
     checkbox.checked = this.task.completed;
     listItem.appendChild(checkbox);
 
-    const taskText = document.createTextNode(
-      `${this.task.description} (${this.task.completed ? 'completed' : 'incomplete'})`,
-    );
+    const taskText = document.createElement('span');
+    taskText.classList.add('task-text');
+    taskText.innerText = this.task.description;
     listItem.appendChild(taskText);
 
-    const eraseIcon = this.createEraseIcon();
-    eraseIcon.style.display = 'none'; // hide erase icon by default
+    const eraseIcon = document.createElement('span');
+    eraseIcon.className = 'erase-icon';
+    eraseIcon.innerHTML = '&times;';
+    eraseIcon.style.display = 'none';
     listItem.appendChild(eraseIcon);
 
     const threeDotsIcon = document.createElement('span');
     threeDotsIcon.className = 'three-dots-icon';
     listItem.appendChild(threeDotsIcon);
 
-    threeDotsIcon.addEventListener('click', () => {
-      threeDotsIcon.style.display = 'none'; // hide three dots icon
-      eraseIcon.style.display = 'inline-block'; // show erase icon
-      listItem.style.backgroundColor = 'yellow'; // set background color to yellow
+    listItem.addEventListener('mouseover', () => {
+      eraseIcon.style.display = 'inline-block';
+      threeDotsIcon.style.display = 'inline-block';
+      listItem.style.backgroundColor = 'yellow';
+      taskText.contentEditable = 'true';
+    });
+
+    listItem.addEventListener('mouseout', () => {
+      eraseIcon.style.display = 'none';
+      listItem.style.backgroundColor = '';
+      taskText.contentEditable = 'false';
     });
 
     eraseIcon.addEventListener('click', () => {
@@ -37,14 +50,6 @@ class TaskElement {
     });
 
     return listItem;
-  }
-
-  // eslint-disable-next-line class-methods-use-this
-  createEraseIcon() {
-    const eraseIcon = document.createElement('span');
-    eraseIcon.className = 'erase-icon';
-    eraseIcon.innerHTML = '&times;';
-    return eraseIcon;
   }
 
   deleteTask() {

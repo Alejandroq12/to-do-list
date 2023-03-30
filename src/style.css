@@ -157,7 +157,7 @@ input[type='checkbox'] {
 
 .erase-icon {
   position: absolute;
-  transform: translateX(5110%);
+  transform: translateX(4800%);
   font-size: 1.2em;
-  cursor: move;
+  cursor: pointer;
 }
