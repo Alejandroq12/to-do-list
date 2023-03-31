@@ -28,7 +28,7 @@ class TaskElement {
 
     const eraseIcon = document.createElement('span');
     eraseIcon.className = 'erase-icon';
-    eraseIcon.innerHTML = '&times;';
+    eraseIcon.innerHTML = '🗑️';
     eraseIcon.style.display = 'none';
     listItem.appendChild(eraseIcon);
 

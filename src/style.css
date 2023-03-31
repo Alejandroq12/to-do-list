@@ -15,14 +15,16 @@ body {
 }
 
 #todo-list__div {
-  position: absolute;
+  position: fixed;
   top: 50%;
   left: 50%;
   width: 40%;
+  height: 60%;
   background-color: #f4f4f4;
   padding: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
   transform: translate(-50%, -50%);
+  overflow: scroll;
 }
 
 .todo-date {
@@ -55,6 +57,7 @@ body {
   margin: 10px 10px;
   border: none;
   font-size: 2rem;
+  font-style: italic;
 }
 
 .arrow {
@@ -88,14 +91,6 @@ input[type='checkbox'] {
   margin-right: 18px;
 }
 
-.three-dots-icon {
-  margin-left: auto;
-  width: 16px;
-  height: 16px;
-  background-image: url('../assets/icons/elipsis.svg');
-  background-size: cover;
-  cursor: move;
-}
 
 .todo-date,
 .todo-div__placeholder,
@@ -130,8 +125,6 @@ input[type='checkbox'] {
   background-color: lightgray;
 }
 
-/* Add this at the end of your existing style.css file */
-
 #main-content {
   flex: 1;
 }
@@ -155,9 +148,21 @@ input[type='checkbox'] {
   line-height: 1.5;
 }
 
+
+
+.three-dots-icon {
+  position: absolute;
+  right: 30px;
+  width: 18px;
+  height: 18px;
+  background-image: url('../assets/icons/elipsis.svg');
+  background-size: cover;
+  cursor: move;
+}
+
 .erase-icon {
   position: absolute;
-  transform: translateX(4800%);
-  font-size: 1.2em;
+  right: 2em;
+  font-size: 1.6em;
   cursor: pointer;
 }
