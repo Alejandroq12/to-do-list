@@ -28,7 +28,7 @@ function populateTasks(tasks) {
   todoList.addEventListener('click', (event) => {
     if (event.target.classList.contains('delete-icon')) {
       const listItem = event.target.parentElement;
-      const taskElement = listItem.taskElement;
+      const { taskElement } = listItem;
       taskElement.deleteTask();
     }
   });
