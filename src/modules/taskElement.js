@@ -2,13 +2,12 @@ import { getTasksFromLocalStorage } from './localStorageHelper.js';
 import { updateTaskIndexes } from './updateIndexes.js';
 
 class TaskElement {
-  constructor(task, populateTasks) {
+  constructor(task) {
     this.task = task;
     this.listItem = this.create();
     this.eraseIcon = this.listItem.querySelector('.erase-icon');
     this.taskText = this.listItem.querySelector('.task-text');
     this.threeDotsIcon = this.listItem.querySelector('.three-dots-icon');
-    this.populateTasks = populateTasks;
   }
 
   create() {
@@ -50,9 +49,6 @@ class TaskElement {
       taskText.contentEditable = 'false';
     });
 
-    eraseIcon.addEventListener('click', () => {
-      this.deleteTask();
-    });
     return listItem;
   }
 

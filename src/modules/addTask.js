@@ -1,7 +1,7 @@
 import { createTaskElement } from './todo.js';
 import TaskElement from './taskElement.js';
 
-const addTask = (tasks, inputValue, populateTasks) => {
+const addTask = (tasks, inputValue) => {
   const newTask = {
     description: inputValue,
     completed: false,
@@ -9,7 +9,7 @@ const addTask = (tasks, inputValue, populateTasks) => {
   };
   tasks.push(newTask);
   const taskList = document.querySelector('.todos-ul');
-  const taskElement = new TaskElement(newTask, populateTasks);
+  const taskElement = new TaskElement(newTask);
   const newTaskElement = createTaskElement(newTask, taskElement);
   taskList.appendChild(newTaskElement);
 };
