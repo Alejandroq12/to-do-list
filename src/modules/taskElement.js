@@ -43,6 +43,15 @@ class TaskElement {
       taskText.contentEditable = 'true';
     });
 
+    taskText.addEventListener('blur', () => {
+      const tasks = getTasksFromLocalStorage();
+      const index = tasks.findIndex((task) => task.index === this.task.index);
+      if (index !== -1) {
+        tasks[index].description = taskText.innerText.trim();
+        localStorage.setItem('tasks', JSON.stringify(tasks));
+      }
+    });
+
     listItem.addEventListener('mouseout', () => {
       eraseIcon.style.display = 'none';
       listItem.style.backgroundColor = '';

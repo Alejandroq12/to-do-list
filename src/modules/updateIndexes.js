@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export function updateTaskIndexes(tasks) {
   // Update indexes for all remaining tasks
   const taskList = document.querySelector('.todos-ul');
@@ -18,3 +17,5 @@ export function updateTaskIndexes(tasks) {
   });
   localStorage.setItem('tasks', JSON.stringify(tasks));
 }
+
+export default updateTaskIndexes;

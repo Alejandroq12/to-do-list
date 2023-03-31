@@ -1,4 +1,3 @@
-/* eslint-disable import/prefer-default-export */
 export function getTasksFromLocalStorage() {
   const storedTasks = localStorage.getItem('tasks');
   if (storedTasks !== null && storedTasks !== 'undefined') {
@@ -7,3 +6,5 @@ export function getTasksFromLocalStorage() {
   localStorage.setItem('tasks', JSON.stringify([]));
   return [];
 }
+
+export default getTasksFromLocalStorage;
