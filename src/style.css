@@ -42,7 +42,7 @@ body {
 .loading-icon {
   width: 16px;
   height: 16px;
-  background-image: url('../assets/icons/rows.svg');
+  background-image: url("../assets/icons/rows.svg");
   background-size: cover;
   margin-right: 22px;
 }
@@ -67,7 +67,7 @@ body {
   transform: translateY(-50%);
   width: 16px;
   height: 16px;
-  background-image: url('../assets/icons/rows2.svg');
+  background-image: url("../assets/icons/rows2.svg");
   background-size: cover;
   margin-right: 22px;
 }
@@ -87,10 +87,9 @@ body {
   padding: 23px 30px;
 }
 
-input[type='checkbox'] {
+input[type="checkbox"] {
   margin-right: 18px;
 }
-
 
 .todo-date,
 .todo-div__placeholder,
@@ -129,6 +128,23 @@ input[type='checkbox'] {
   flex: 1;
 }
 
+.three-dots-icon {
+  position: absolute;
+  right: 30px;
+  width: 18px;
+  height: 18px;
+  background-image: url("../assets/icons/elipsis.svg");
+  background-size: cover;
+  cursor: move;
+}
+
+.erase-icon {
+  position: absolute;
+  right: 2em;
+  font-size: 1.6em;
+  cursor: pointer;
+}
+
 #footer {
   display: flex;
   justify-content: center;
@@ -146,23 +162,4 @@ input[type='checkbox'] {
 #footer p {
   font-size: 1.4rem;
   line-height: 1.5;
-}
-
-
-
-.three-dots-icon {
-  position: absolute;
-  right: 30px;
-  width: 18px;
-  height: 18px;
-  background-image: url('../assets/icons/elipsis.svg');
-  background-size: cover;
-  cursor: move;
-}
-
-.erase-icon {
-  position: absolute;
-  right: 2em;
-  font-size: 1.6em;
-  cursor: pointer;
 }
