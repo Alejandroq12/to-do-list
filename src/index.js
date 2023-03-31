@@ -1,11 +1,11 @@
 import './style.css';
 import { updateTaskIndexes } from './modules/updateIndexes.js';
-import { createToDoStructure } from './modules/todo.js';
 import addTask from './modules/addTask.js';
 import { getTasksFromLocalStorage } from './modules/localStorageHelper.js';
 import TaskElement from './modules/taskElement.js';
+import ToDoStructure from './modules/ToDoStructure.js';
 
-function populateTasks(tasks) {
+export function populateTasks(tasks) {
   const todoList = document.querySelector('.todos-ul');
 
   // Clear the current task list elements
@@ -13,7 +13,6 @@ function populateTasks(tasks) {
     todoList.removeChild(todoList.firstChild);
   }
 
-  tasks.map((task) => new TaskElement(task, populateTasks));
   tasks.forEach((task) => {
     const taskElement = new TaskElement(task);
     todoList.appendChild(taskElement.create());
@@ -21,7 +20,7 @@ function populateTasks(tasks) {
 }
 
 const tasks = getTasksFromLocalStorage();
-const toDoStructure = createToDoStructure(tasks);
+const toDoStructure = new ToDoStructure(tasks, populateTasks).create();
 document.getElementById('todo-list-placeholder').appendChild(toDoStructure);
 populateTasks(tasks); // Call the function with tasks argument
 
@@ -61,8 +60,9 @@ todoList.addEventListener('click', (event) => {
       updateTaskIndexes(tasks);
       localStorage.setItem('tasks', JSON.stringify(tasks));
     }
-
     // Remove the listItem directly from the DOM without repopulating the entire list
     listItem.remove();
   }
 });
+
+export default populateTasks;

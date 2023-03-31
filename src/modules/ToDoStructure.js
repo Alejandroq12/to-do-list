@@ -1,8 +1,16 @@
 import TaskElement from './taskElement.js';
+import { getTasksFromLocalStorage } from './localStorageHelper.js';
+import { clearCompletedTasks } from './statusUpdates.js';
+import { updateTaskIndexes } from './updateIndexes.js';
 
 class ToDoStructure {
-  constructor(tasks) {
+  constructor(tasks, populateTasksFunc) {
     this.tasks = tasks;
+    this.populateTasks = populateTasksFunc;
+    this.updateTasks = (newTasks) => {
+      this.tasks.length = 0;
+      newTasks.forEach((task) => this.tasks.push(task));
+    };
   }
 
   create() {
@@ -12,7 +20,7 @@ class ToDoStructure {
     main.appendChild(ToDoStructure.createTodoDateDiv());
     main.appendChild(ToDoStructure.createTodoDivPlaceholder());
     main.appendChild(this.createTodoListDiv());
-    main.appendChild(ToDoStructure.createBtnDiv());
+    main.appendChild(this.createBtnDiv(this.populateTasks));
 
     return main;
   }
@@ -67,15 +75,22 @@ class ToDoStructure {
     return todoListDiv;
   }
 
-  static createBtnDiv() {
+  // eslint-disable-next-line class-methods-use-this
+  createBtnDiv(populateTasksFunc) {
     const btnDiv = document.createElement('div');
     btnDiv.className = 'btn';
-
     const btnP = document.createElement('button');
     btnP.className = 'btn-p';
     btnP.textContent = 'Clear all completed';
     btnDiv.appendChild(btnP);
-
+    btnP.addEventListener('click', () => {
+      const tasks = getTasksFromLocalStorage();
+      const updatedTasks = clearCompletedTasks(tasks);
+      updateTaskIndexes(updatedTasks);
+      populateTasksFunc(updatedTasks);
+      localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+      this.updateTasks(updatedTasks); // Update the tasks array
+    });
     return btnDiv;
   }
 }

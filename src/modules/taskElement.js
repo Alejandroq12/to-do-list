@@ -1,5 +1,6 @@
 import { getTasksFromLocalStorage } from './localStorageHelper.js';
 import { updateTaskIndexes } from './updateIndexes.js';
+import { toggleTaskCompletion } from './statusUpdates.js';
 
 class TaskElement {
   constructor(task) {
@@ -56,6 +57,13 @@ class TaskElement {
       eraseIcon.style.display = 'none';
       listItem.style.backgroundColor = '';
       taskText.contentEditable = 'false';
+    });
+    checkbox.addEventListener('change', () => {
+      const tasks = getTasksFromLocalStorage();
+      const index = tasks.findIndex((task) => task.index === this.task.index);
+      if (index !== -1) {
+        toggleTaskCompletion(tasks[index], tasks);
+      }
     });
 
     return listItem;
