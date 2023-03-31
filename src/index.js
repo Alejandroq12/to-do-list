@@ -1,16 +1,68 @@
 import './style.css';
-import { createToDoStructure } from './todo.js';
+import { updateTaskIndexes } from './modules/updateIndexes.js';
+import { createToDoStructure } from './modules/todo.js';
+import addTask from './modules/addTask.js';
+import { getTasksFromLocalStorage } from './modules/localStorageHelper.js';
+import TaskElement from './modules/taskElement.js';
 
-const tasks = [
-  { description: 'Buy groceries', completed: false, index: 1 },
-  { description: 'Do laundry', completed: true, index: 0 },
-  { description: 'Finish project', completed: false, index: 2 },
-];
+function populateTasks(tasks) {
+  const todoList = document.querySelector('.todos-ul');
 
-function populateTasks() {
-  const placeholder = document.getElementById('todo-list-placeholder');
-  const toDoStructure = createToDoStructure(tasks);
-  placeholder.appendChild(toDoStructure);
+  // Clear the current task list elements
+  while (todoList.firstChild) {
+    todoList.removeChild(todoList.firstChild);
+  }
+
+  tasks.map((task) => new TaskElement(task, populateTasks));
+  tasks.forEach((task) => {
+    const taskElement = new TaskElement(task);
+    todoList.appendChild(taskElement.create());
+  });
 }
 
-window.addEventListener('DOMContentLoaded', populateTasks);
+const tasks = getTasksFromLocalStorage();
+const toDoStructure = createToDoStructure(tasks);
+document.getElementById('todo-list-placeholder').appendChild(toDoStructure);
+populateTasks(tasks); // Call the function with tasks argument
+
+window.addEventListener('DOMContentLoaded', () => {
+  updateTaskIndexes(tasks);
+});
+
+const input = document.getElementById('new-task');
+input.addEventListener('keyup', (event) => {
+  if (event.key === 'Enter') {
+    const inputValue = input.value.trim();
+    if (inputValue !== '') {
+      addTask(tasks, inputValue, populateTasks);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+      input.value = '';
+    }
+  }
+});
+
+function eraseTaskFromView(taskElement) {
+  taskElement.deleteTask();
+}
+
+const todoList = document.querySelector('.todos-ul');
+
+todoList.addEventListener('click', (event) => {
+  if (event.target.classList.contains('erase-icon')) {
+    event.stopPropagation();
+    const listItem = event.target.parentElement;
+    const { taskElement } = listItem;
+    eraseTaskFromView(taskElement);
+
+    // Update the tasks array
+    const taskIndex = tasks.findIndex((task) => task.index === taskElement.task.index);
+    if (taskIndex > -1) {
+      tasks.splice(taskIndex, 1);
+      updateTaskIndexes(tasks);
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+
+    // Remove the listItem directly from the DOM without repopulating the entire list
+    listItem.remove();
+  }
+});
