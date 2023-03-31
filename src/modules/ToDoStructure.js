@@ -81,14 +81,3 @@ class ToDoStructure {
 }
 
 export default ToDoStructure;
-
-// Static methods are methods that are called on the class itself, not on an instance of the class.
-// Prototype methods are methods that are called on an instance of the class.
-// Probably the most common use of static methods is to create utility functions for an application.
-// There is no need to instantiate a class to use a static method.
-
-// Static methods are often used to create factory functions that simplify
-// the process of creating objects.
-
-// There is high probability that I will not use static methods tomorrow when I implement
-// the CRUD functionality.

@@ -1,16 +1,21 @@
+import { getTasksFromLocalStorage } from './localStorageHelper.js';
+import { updateTaskIndexes } from './updateIndexes.js';
+
 class TaskElement {
-  constructor(task) {
+  constructor(task, populateTasks) {
     this.task = task;
     this.listItem = this.create();
     this.eraseIcon = this.listItem.querySelector('.erase-icon');
     this.taskText = this.listItem.querySelector('.task-text');
     this.threeDotsIcon = this.listItem.querySelector('.three-dots-icon');
+    this.populateTasks = populateTasks;
   }
 
   create() {
     const listItem = document.createElement('li');
     listItem.dataset.index = this.task.index;
     listItem.classList.add('task-item');
+    listItem.taskElement = this;
 
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
@@ -48,13 +53,24 @@ class TaskElement {
     eraseIcon.addEventListener('click', () => {
       this.deleteTask();
     });
-
     return listItem;
   }
 
   deleteTask() {
-    const listItem = document.querySelector(`li[data-index='${this.task.index}']`);
-    listItem.remove();
+    const tasks = getTasksFromLocalStorage();
+    const index = tasks.findIndex((task) => task.index === this.task.index);
+    if (index !== -1) {
+      tasks.splice(index, 1);
+      // Update task indexes
+      tasks.forEach((task, newIndex) => {
+        task.index = newIndex + 1;
+      });
+      // Update local storage
+      localStorage.setItem('tasks', JSON.stringify(tasks));
+    }
+    // Remove the list item element from the DOM
+    this.listItem.remove();
+    updateTaskIndexes(tasks);
   }
 }
 

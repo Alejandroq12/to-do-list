@@ -1,13 +1,14 @@
 import './style.css';
-
+import { updateTaskIndexes } from './modules/updateIndexes.js';
 import { createToDoStructure } from './modules/todo.js';
 import addTask from './modules/addTask.js';
+import { getTasksFromLocalStorage } from './modules/localStorageHelper.js';
+import TaskElement from './modules/taskElement.js';
 
-const tasks = [];
-
-function populateTasks() {
+function populateTasks(tasks) {
   const placeholder = document.getElementById('todo-list-placeholder');
-  const toDoStructure = createToDoStructure(tasks);
+  tasks.map((task) => new TaskElement(task, populateTasks));
+  const toDoStructure = createToDoStructure(tasks, tasks, updateTaskIndexes);
   placeholder.appendChild(toDoStructure);
 
   const input = document.getElementById('new-task');
@@ -15,20 +16,27 @@ function populateTasks() {
     if (event.key === 'Enter') {
       const inputValue = input.value.trim();
       if (inputValue !== '') {
-        addTask(tasks, inputValue);
+        addTask(tasks, inputValue, populateTasks);
+        localStorage.setItem('tasks', JSON.stringify(tasks));
         input.value = '';
       }
     }
   });
+
   const todoList = document.querySelector('.todos-ul');
+
   todoList.addEventListener('click', (event) => {
     if (event.target.classList.contains('delete-icon')) {
       const listItem = event.target.parentElement;
-      const index = parseInt(listItem.dataset.index, 10);
-      tasks.splice(index, 1);
-      listItem.remove();
+      const taskElement = listItem.taskElement;
+      taskElement.deleteTask();
     }
   });
 }
 
-window.addEventListener('DOMContentLoaded', populateTasks);
+const tasks = getTasksFromLocalStorage();
+populateTasks(tasks); // Call the function with tasks argument
+
+window.addEventListener('DOMContentLoaded', () => {
+  updateTaskIndexes(tasks);
+});
