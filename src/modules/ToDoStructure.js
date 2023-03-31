@@ -7,6 +7,10 @@ class ToDoStructure {
   constructor(tasks, populateTasksFunc) {
     this.tasks = tasks;
     this.populateTasks = populateTasksFunc;
+    this.updateTasks = (newTasks) => {
+      this.tasks.length = 0;
+      newTasks.forEach((task) => this.tasks.push(task));
+    };
   }
 
   create() {
@@ -85,6 +89,7 @@ class ToDoStructure {
       updateTaskIndexes(updatedTasks);
       populateTasksFunc(updatedTasks);
       localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+      this.updateTasks(updatedTasks); // Update the tasks array
     });
     return btnDiv;
   }
