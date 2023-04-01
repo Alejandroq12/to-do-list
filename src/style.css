@@ -128,6 +128,9 @@ input[type="checkbox"] {
 
 #main-content {
   flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .three-dots-icon {
@@ -178,7 +181,6 @@ input[type="checkbox"] {
   color: white;
 }
 
-
 .night-mode a {
   color: #00b7ff;
 }
@@ -196,30 +198,31 @@ input[type="checkbox"] {
   border-bottom: 1px solid lightgray;
 }
 
-.night-mode  .todo-list {
+.night-mode .todo-list {
   color: #fff;
 }
 
-.night-mode  #todo-list__div {
+.night-mode #todo-list__div {
   background-color: #333;
   padding: 0;
   box-shadow: 100px -100px 26px rgba(255, 255, 255, 0.1);
   transform: translate(-50%, -50%);
   overflow: scroll;
 }
+
 .night-mode .task-item {
   background-color: gray;
   color: #000;
 }
 
-.night-mode  #footer {
+.night-mode #footer {
   background-color: #333;
-  color: #fff
+  color: #fff;
 }
 
 /* Cool Button Styles */
 .cool-button {
-  background-color: #4C8BF5;
+  background-color: #4c8bf5;
   border: none;
   color: white;
   text-align: center;
@@ -233,16 +236,16 @@ input[type="checkbox"] {
 }
 
 .cool-button:hover {
-  background-color: #3D75D8;
+  background-color: #3d75d8;
 }
 
 .cool-button:active {
-  background-color: #3063AB;
+  background-color: #3063ab;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.9);
   transform: translateY(2px);
 }
 
-.cool-button:before {
+.cool-button::before {
   content: "";
   position: absolute;
   top: 0;
@@ -254,7 +257,7 @@ input[type="checkbox"] {
   pointer-events: none;
 }
 
-.cool-button:after {
+.cool-button::after {
   content: "";
   position: absolute;
   top: 0;
@@ -269,15 +272,9 @@ input[type="checkbox"] {
   transition: opacity 0.3s, transform 0.3s;
 }
 
-.cool-button:hover:after {
+.cool-button:hover::after {
   opacity: 1;
   transform: scale(1);
-}
-
-#main-content {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 #toggle-theme {
