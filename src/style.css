@@ -175,11 +175,6 @@ input[type="checkbox"] {
   line-height: 1.5;
 }
 
-#footer a {
-  color: #00b7ff;
-  text-decoration: none;
-}
-
 /* Night mode styles */
 .night-mode body {
   background-color: #000;
@@ -194,6 +189,11 @@ input[type="checkbox"] {
 
 .night-mode a {
   color: #00b7ff;
+}
+
+#footer a {
+  color: #00b7ff;
+  text-decoration: none;
 }
 
 .night-mode button {
