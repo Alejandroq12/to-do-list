@@ -18,8 +18,8 @@ body {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 40%;
-  height: 60%;
+  width: 90%;
+  height: 70%;
   background-color: #f4f4f4;
   padding: 0;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.9);
@@ -35,8 +35,9 @@ body {
 
 .todo-date__p {
   margin: 0;
-  font-size: 3.5rem;
-  padding: 10px;
+  font-size: 3rem;
+  padding: 0.4rem;
+  margin-left: 1rem;
 }
 
 .loading-icon {
@@ -52,11 +53,11 @@ body {
 }
 
 #new-task {
-  width: 90%;
+  width: 80%;
   padding: 10px;
-  margin: 10px 10px;
+  margin: 10px 8px;
   border: none;
-  font-size: 2rem;
+  font-size: 1.7rem;
   font-style: italic;
 }
 
@@ -65,8 +66,8 @@ body {
   right: 10px;
   top: 50%;
   transform: translateY(-50%);
-  width: 16px;
-  height: 16px;
+  width: 17px;
+  height: 17px;
   background-image: url("../assets/icons/rows2.svg");
   background-size: cover;
   margin-right: 22px;
@@ -89,6 +90,11 @@ body {
 
 input[type="checkbox"] {
   margin-right: 18px;
+}
+
+.task-text {
+  max-width: 55%;
+  word-wrap: break-word;
 }
 
 .todo-date,
@@ -145,8 +151,8 @@ input[type="checkbox"] {
 
 .erase-icon {
   position: absolute;
-  right: 2.2em;
-  font-size: 1.6em;
+  right: 2.8em;
+  font-size: 1.2em;
   cursor: pointer;
 }
 
@@ -183,6 +189,11 @@ input[type="checkbox"] {
 
 .night-mode a {
   color: #00b7ff;
+}
+
+#footer a {
+  color: #00b7ff;
+  text-decoration: none;
 }
 
 .night-mode button {
