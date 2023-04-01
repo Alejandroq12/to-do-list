@@ -29,7 +29,7 @@ class TaskElement {
 
     const eraseIcon = document.createElement('span');
     eraseIcon.className = 'erase-icon';
-    eraseIcon.innerHTML = '🗑️';
+    eraseIcon.innerHTML = '❌';
     eraseIcon.style.display = 'none';
     listItem.appendChild(eraseIcon);
 
@@ -40,7 +40,7 @@ class TaskElement {
     listItem.addEventListener('mouseover', () => {
       eraseIcon.style.display = 'inline-block';
       threeDotsIcon.style.display = 'inline-block';
-      listItem.style.backgroundColor = 'yellow';
+      listItem.style.backgroundColor = 'lightgray';
       taskText.contentEditable = 'true';
     });
 

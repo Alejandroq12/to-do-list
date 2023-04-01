@@ -4,6 +4,7 @@ import addTask from './modules/addTask.js';
 import { getTasksFromLocalStorage } from './modules/localStorageHelper.js';
 import TaskElement from './modules/taskElement.js';
 import ToDoStructure from './modules/ToDoStructure.js';
+import { enableNightMode } from './modules/nightMode.js';
 
 export function populateTasks(tasks) {
   const todoList = document.querySelector('.todos-ul');
@@ -64,5 +65,5 @@ todoList.addEventListener('click', (event) => {
     listItem.remove();
   }
 });
-
+enableNightMode();
 export default populateTasks;
