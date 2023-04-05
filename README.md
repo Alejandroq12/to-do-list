@@ -175,6 +175,11 @@ npx stylelint "**/*.css"
 npx hint .
 
 ```
+- For Jest:
+```
+npx jest
+
+```
 3. Review the output of each linter and fix any issues reported.
 
 ### Deployment
