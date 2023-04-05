@@ -2,9 +2,11 @@ import addTask from './addTask.js';
 
 describe('Add and Delete', () => {
   test('Add function', () => {
-    expect(addTask(tasks, inputValue).toBe())
-  });
-
-  test('Delete function', () => {
+    const newTask = {
+      description: true,
+      completed: false,
+      index: 1,
+    };
+    expect(newTask.length).toEqual(3);
   });
 });
