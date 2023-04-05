@@ -4,7 +4,7 @@
   "description": "<a name=\"readme-top\">My Books</a>",
   "private": "true",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "jest --coverage",
     "build": "webpack --mode production",
     "start": "webpack-dev-server --mode development --open"
   },
@@ -20,9 +20,10 @@
   },
   "homepage": "https://github.com/Alejandroq12/webpack-template#readme",
   "devDependencies": {
-    "@babel/core": "^7.21.3",
-    "@babel/preset-env": "^7.20.2",
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^29.5.0",
     "babel-loader": "^9.1.2",
     "css-loader": "^6.7.3",
     "eslint": "^7.32.0",
@@ -30,6 +31,8 @@
     "eslint-plugin-import": "^2.27.5",
     "hint": "^7.1.7",
     "html-webpack-plugin": "^5.5.0",
+    "jest": "^29.5.0",
+    "jest-environment-jsdom": "^29.5.0",
     "style-loader": "^3.3.2",
     "stylelint": "^13.13.1",
     "stylelint-config-standard": "^21.0.0",
