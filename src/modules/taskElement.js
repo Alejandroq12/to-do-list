@@ -3,8 +3,10 @@ import { updateTaskIndexes } from './updateIndexes.js';
 import { toggleTaskCompletion } from './statusUpdates.js';
 
 class TaskElement {
-  constructor(task) {
+  constructor(task, tasks) {
     this.task = task;
+    this.tasks = tasks;
+    this.element = null;
     this.listItem = this.create();
     this.eraseIcon = this.listItem.querySelector('.erase-icon');
     this.taskText = this.listItem.querySelector('.task-text');
@@ -24,7 +26,7 @@ class TaskElement {
 
     const taskText = document.createElement('span');
     taskText.classList.add('task-text');
-    taskText.innerText = this.task.description;
+    taskText.innerText = this.task.description; // Keep this line here
     listItem.appendChild(taskText);
 
     const eraseIcon = document.createElement('span');
