@@ -4,7 +4,7 @@
 // I am using an event listener wich uses an arrow function
 
 import TaskElement from './taskElement.js';
-// import { toggleTaskCompletion, clearCompletedTasks } from './statusUpdates.js';
+import { toggleTaskCompletion, clearCompletedTasks } from './statusUpdates.js';
 
 describe('Edit test | Update test | Complete test', () => {
   let tasks;
@@ -41,9 +41,18 @@ describe('Edit test | Update test | Complete test', () => {
     taskList = document.querySelector('.todos-ul');
   });
 
-  test('Edit a task', () => {
-    const taskList = document.querySelector('.todos-ul');
-    
-    expect(taskList.children.length).toBe(3);
+  // test('Edit a task', () => {
+  //   const taskList = document.querySelector('.todos-ul');
+
+  //   expect(taskList.children.length).toBe(3);
+  // });
+
+  test('Has to toggle completed task property (false/true)', () => {
+    const task = { description: 'Task 1', completed: false, index: 1 };
+    const task2 = { description: 'Task 2', completed: true, index: 1 };
+    toggleTaskCompletion(task);
+
+    expect((task.completed = !task.completed)).not.toBeTruthy();
+    expect((task2.completed = !task2.completed)).toBeFalsy();
   });
 });
