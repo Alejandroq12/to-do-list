@@ -48,9 +48,13 @@ class TaskElement {
     });
 
     taskText.addEventListener('blur', () => {
-      const tasks = getTasksFromLocalStorage();
-      const updatedTasks = updateTaskDescription(tasks, this.task.index, taskText.innerText);
-      localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+      const newDescription = taskText.innerText;
+      if (newDescription !== this.task.description) {
+        const tasks = getTasksFromLocalStorage();
+        const updatedTasks = updateTaskDescription(tasks, this.task.index, newDescription);
+        localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+        this.task.description = newDescription;
+      }
     });
 
     listItem.addEventListener('mouseout', () => {
@@ -68,23 +72,6 @@ class TaskElement {
     });
 
     return listItem;
-  }
-
-  deleteTask() {
-    const tasks = getTasksFromLocalStorage();
-    const index = tasks.findIndex((task) => task.index === this.task.index);
-    if (index !== -1) {
-      tasks.splice(index, 1);
-      // Update task indexes
-      tasks.forEach((task, newIndex) => {
-        task.index = newIndex + 1;
-      });
-      // Update local storage
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
-    // Remove the list item element from the DOM
-    this.listItem.remove();
-    updateTaskIndexes(tasks);
   }
 }
 
