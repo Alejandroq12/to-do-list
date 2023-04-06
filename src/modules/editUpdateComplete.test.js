@@ -6,3 +6,43 @@
 import TaskElement from './taskElement.js';
 // import { toggleTaskCompletion, clearCompletedTasks } from './statusUpdates.js';
 
+describe('Edit test | Update test | Complete test', () => {
+  let tasks;
+  let inputValue;
+  let taskList;
+
+  beforeEach(() => {
+    document.body.innerHTML = `
+      <ul class="todos-ul">
+        <li>Task 1</li>
+        <li>Task 2</li>
+        <li>Task 3</li>
+      </ul>
+    `;
+
+    tasks = [
+      {
+        description: 'Task 1',
+        completed: false,
+        index: 1,
+      },
+      {
+        description: 'Task 2',
+        completed: false,
+        index: 2,
+      },
+      {
+        description: 'Task 3',
+        completed: false,
+        index: 3,
+      },
+    ];
+    inputValue = 'Task to be edited';
+
+    taskList = document.querySelector('.todos-ul');
+  });
+
+  test('Edit a task', () => {
+    const taskElement = new TaskElement();
+  });
+});
