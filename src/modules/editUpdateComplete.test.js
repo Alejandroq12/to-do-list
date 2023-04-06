@@ -41,11 +41,16 @@ describe('Edit test | Update test | Complete test', () => {
     taskList = document.querySelector('.todos-ul');
   });
 
-  // test('Edit a task', () => {
-  //   const taskList = document.querySelector('.todos-ul');
+  test('Has to update task description when edited', () => {
+    const task = { description: 'Task 1', completed: false, index: 1 };
+    const updatedTask = { description: 'New Task Description', completed: false, index: 1 };
+    const taskElement = new TaskElement(task, []);
+    taskElement.taskText.innerText = updatedTask.description;
+    taskElement.taskText.dispatchEvent(new Event('blur'));
+    const updatedTasks = JSON.parse(localStorage.getItem('tasks'));
 
-  //   expect(taskList.children.length).toBe(3);
-  // });
+    expect(updatedTasks[0].description).toBe(updatedTask.description);
+  });
 
   test('Has to toggle completed task property (false/true)', () => {
     const task = { description: 'Task 1', completed: false, index: 1 };
