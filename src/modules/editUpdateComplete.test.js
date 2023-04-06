@@ -2,8 +2,7 @@
 // The function for updating an items completed status is on statusUpdates.js
 // The function for the clear all completed button is on statusUpdates.js
 // I am using an event listener wich uses an arrow function
-
-import TaskElement from './taskElement.js';
+import { updateTaskDescription } from './taskDescription.js';
 import { toggleTaskCompletion, clearCompletedTasks } from './statusUpdates.js';
 
 describe('Edit test | Update test | Complete test', () => {
@@ -41,15 +40,10 @@ describe('Edit test | Update test | Complete test', () => {
     taskList = document.querySelector('.todos-ul');
   });
 
-  test('Has to update task description when edited', () => {
-    const task = { description: 'Task 1', completed: false, index: 1 };
-    const updatedTask = { description: 'New Task Description', completed: false, index: 1 };
-    const taskElement = new TaskElement(task, []);
-    taskElement.taskText.innerText = updatedTask.description;
-    taskElement.taskText.dispatchEvent(new Event('blur'));
-    const updatedTasks = JSON.parse(localStorage.getItem('tasks'));
+  test('Update task description', () => {
+    const updatedTasks = updateTaskDescription(tasks, 2, 'Updated Task 2');
 
-    expect(updatedTasks[0].description).toBe(updatedTask.description);
+    expect(updatedTasks[1].description).toBe('Updated Task 2');
   });
 
   test('Has to toggle completed task property (false/true)', () => {
