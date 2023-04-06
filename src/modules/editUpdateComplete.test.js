@@ -1,14 +1,8 @@
-// The function for editing the task description is on taskElement.js - it is called taskText
-// The function for updating an items completed status is on statusUpdates.js
-// The function for the clear all completed button is on statusUpdates.js
-// I am using an event listener wich uses an arrow function
 import { updateTaskDescription } from './taskDescription.js';
 import { toggleTaskCompletion, clearCompletedTasks } from './statusUpdates.js';
 
 describe('Edit test | Update test | Complete test', () => {
   let tasks;
-  let inputValue;
-  let taskList;
 
   beforeEach(() => {
     document.body.innerHTML = `
@@ -36,17 +30,15 @@ describe('Edit test | Update test | Complete test', () => {
         index: 3,
       },
     ];
-    inputValue = 'Task to be edited';
-    taskList = document.querySelector('.todos-ul');
   });
 
-  test('Update task description', () => {
+  test('updates the task description based on the given index and new description', () => {
     const updatedTasks = updateTaskDescription(tasks, 2, 'Updated Task 2');
 
     expect(updatedTasks[1].description).toBe('Updated Task 2');
   });
 
-  test('Has to toggle completed task property (false/true)', () => {
+  test('toggles the completed status of a task', () => {
     const task = { description: 'Task 1', completed: false, index: 1 };
     const task2 = { description: 'Task 2', completed: true, index: 1 };
     toggleTaskCompletion(task);
@@ -56,7 +48,7 @@ describe('Edit test | Update test | Complete test', () => {
     expect(task2.completed).toBe(false);
   });
 
-  test('Clear all completed tasks', () => {
+  test('removes all completed tasks from the list', () => {
     const tasks = [
       { description: 'Task 1', completed: false, index: 1 },
       { description: 'Task 2', completed: true, index: 2 },
