@@ -60,6 +60,7 @@ class TaskElement {
       listItem.style.backgroundColor = '';
       taskText.contentEditable = 'false';
     });
+
     checkbox.addEventListener('change', () => {
       const tasks = getTasksFromLocalStorage();
       const index = tasks.findIndex((task) => task.index === this.task.index);
