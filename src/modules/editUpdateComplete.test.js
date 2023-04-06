@@ -56,4 +56,15 @@ describe('Edit test | Update test | Complete test', () => {
     expect(task.completed).toBe(true);
     expect(task2.completed).toBe(false);
   });
+
+  test('Clear all completed tasks', () => {
+    const tasks = [
+      { description: 'Task 1', completed: false, index: 1 },
+      { description: 'Task 2', completed: true, index: 2 },
+      { description: 'Task 3', completed: false, index: 3 },
+    ];
+
+    const newTasksArray = clearCompletedTasks(tasks);
+    expect(newTasksArray.length).toBe(2);
+  });
 });
