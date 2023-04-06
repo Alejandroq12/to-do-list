@@ -38,11 +38,12 @@ describe('Edit test | Update test | Complete test', () => {
       },
     ];
     inputValue = 'Task to be edited';
-
     taskList = document.querySelector('.todos-ul');
   });
 
   test('Edit a task', () => {
-    const taskElement = new TaskElement();
+    const taskList = document.querySelector('.todos-ul');
+    
+    expect(taskList.children.length).toBe(3);
   });
 });
