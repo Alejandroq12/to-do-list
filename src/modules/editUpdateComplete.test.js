@@ -51,8 +51,9 @@ describe('Edit test | Update test | Complete test', () => {
     const task = { description: 'Task 1', completed: false, index: 1 };
     const task2 = { description: 'Task 2', completed: true, index: 1 };
     toggleTaskCompletion(task);
+    toggleTaskCompletion(task2);
 
-    expect((task.completed = !task.completed)).not.toBeTruthy();
-    expect((task2.completed = !task2.completed)).toBeFalsy();
+    expect(task.completed).toBe(true);
+    expect(task2.completed).toBe(false);
   });
 });
