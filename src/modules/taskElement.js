@@ -1,5 +1,4 @@
 import { getTasksFromLocalStorage } from './localStorageHelper.js';
-import { updateTaskIndexes } from './updateIndexes.js';
 import { toggleTaskCompletion } from './statusUpdates.js';
 import { updateTaskDescription } from './taskDescription.js'; // Import the function
 
