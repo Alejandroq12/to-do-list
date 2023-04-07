@@ -1,4 +1,4 @@
-import addTask from './addTask.js';
+import addTask from '../addTask.js';
 
 describe('addTask', () => {
   let tasks;

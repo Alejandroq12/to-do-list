@@ -41,10 +41,6 @@ input.addEventListener('keyup', (event) => {
   }
 });
 
-function eraseTaskFromView(taskElement) {
-  taskElement.deleteTask();
-}
-
 const todoList = document.querySelector('.todos-ul');
 
 todoList.addEventListener('click', (event) => {
@@ -52,7 +48,6 @@ todoList.addEventListener('click', (event) => {
     event.stopPropagation();
     const listItem = event.target.parentElement;
     const { taskElement } = listItem;
-    eraseTaskFromView(taskElement);
 
     // Update the tasks array
     const taskIndex = tasks.findIndex((task) => task.index === taskElement.task.index);
@@ -65,5 +60,6 @@ todoList.addEventListener('click', (event) => {
     listItem.remove();
   }
 });
+
 enableNightMode();
 export default populateTasks;

@@ -1,6 +1,6 @@
 import { getTasksFromLocalStorage } from './localStorageHelper.js';
-import { updateTaskIndexes } from './updateIndexes.js';
 import { toggleTaskCompletion } from './statusUpdates.js';
+import { updateTaskDescription } from './taskDescription.js'; // Import the function
 
 class TaskElement {
   constructor(task, tasks) {
@@ -47,11 +47,12 @@ class TaskElement {
     });
 
     taskText.addEventListener('blur', () => {
-      const tasks = getTasksFromLocalStorage();
-      const index = tasks.findIndex((task) => task.index === this.task.index);
-      if (index !== -1) {
-        tasks[index].description = taskText.innerText.trim();
-        localStorage.setItem('tasks', JSON.stringify(tasks));
+      const newDescription = taskText.innerText;
+      if (newDescription !== this.task.description) {
+        const tasks = getTasksFromLocalStorage();
+        const updatedTasks = updateTaskDescription(tasks, this.task.index, newDescription);
+        localStorage.setItem('tasks', JSON.stringify(updatedTasks));
+        this.task.description = newDescription;
       }
     });
 
@@ -70,23 +71,6 @@ class TaskElement {
     });
 
     return listItem;
-  }
-
-  deleteTask() {
-    const tasks = getTasksFromLocalStorage();
-    const index = tasks.findIndex((task) => task.index === this.task.index);
-    if (index !== -1) {
-      tasks.splice(index, 1);
-      // Update task indexes
-      tasks.forEach((task, newIndex) => {
-        task.index = newIndex + 1;
-      });
-      // Update local storage
-      localStorage.setItem('tasks', JSON.stringify(tasks));
-    }
-    // Remove the list item element from the DOM
-    this.listItem.remove();
-    updateTaskIndexes(tasks);
   }
 }
 
