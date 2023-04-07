@@ -1,5 +1,5 @@
-import { updateTaskDescription } from './taskDescription.js';
-import { toggleTaskCompletion, clearCompletedTasks } from './statusUpdates.js';
+import { updateTaskDescription } from '../taskDescription.js';
+import { toggleTaskCompletion, clearCompletedTasks } from '../statusUpdates.js';
 
 describe('Edit test | Update test | Complete test', () => {
   let tasks;
