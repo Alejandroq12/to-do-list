@@ -14,7 +14,7 @@
 # 📗 Table of Contents
 
 - [📗 Table of Contents](#-table-of-contents)
-- [📖 My Books ](#-my-books-)
+- [📖 To do list ](#-to-do-list-)
   - [🛠 Built With ](#-built-with-)
     - [Tech Stack ](#tech-stack-)
     - [Key Features ](#key-features-)
@@ -36,7 +36,7 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-# 📖 My Books <a name="about-project"></a>
+# 📖 To do list <a name="about-project"></a>
 
 🚀 This repository contains the front-end implementation of a to-do list web application. The app is designed to help users efficiently manage their tasks and stay organized, using modern web development practices and technologies.
 
