@@ -51,6 +51,7 @@
     <li><a href="https://developer.mozilla.org/es/docs/Web/CSS">CSS</a></li>
     <li><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript">JavaScript</a></li>
     <li><a href="https://webpack.js.org/">Webpack</a></li>
+    <li><a href="https://jestjs.io/">Jest</a></li>
   </ul>
 </details>
 
