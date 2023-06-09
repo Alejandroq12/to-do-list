@@ -129,7 +129,7 @@ Install this project with:
 npm install
 ```
 
-3. If you run npm install, remember to create a .gitignore file to prevent the node_modules folder from being uploaded to GitHub:
+3. If you run `npm install`, remember to create a `.gitignore` file to prevent the node_modules folder from being uploaded to GitHub:
 
 ```
 .gitignore
@@ -143,7 +143,7 @@ To use this project locally on your computer, follow these steps:
 
 1. Clone the repository or download the project files.
 2. Navigate to the project directory where the index.html file is located.
-3. Open the index.html file with a web browser.
+3. Open the `index.html` file with a web browser.
 - Optional: You can also use the Live Server extension for Visual Studio Code to view the website with live reloading.
 
 -- Install the Live Server extension in Visual Studio Code.
