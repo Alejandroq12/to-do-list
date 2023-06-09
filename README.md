@@ -123,7 +123,7 @@ Install this project with:
 
 1. To view this project, no additional installation is required.
 
-2. However, if you want to test the linter configured for detecting errors or use Luxon library, complete the following steps:
+2. However, if you want to test the linters configured for detecting errors or use Luxon library, complete the following steps:
 
 ```
 npm install
